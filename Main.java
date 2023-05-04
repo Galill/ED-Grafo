@@ -41,8 +41,7 @@ public class Main {
         scanner.close();
         return g;
     }
-    //L é uma lista de inteiros que contém os índices dos vértices que são adjacentes ao vértice i
-    //M[][] é o peso da aresta que liga o vértice i ao vértice j, ou 0 caso não haja uma aresta que ligue os vértices
+    
     public static void main(String[] args) throws FileNotFoundException {
         Grafo grafo = loadFrom("/Users/kteot/OneDrive/Área de Trabalho/Java/src/Grafo/pcv10.txt");
         
@@ -58,24 +57,23 @@ public class Main {
        System.out.println();
       }
       
-int s = 1; 
-int t = 5; 
-ArrayList<Integer> caminho = grafo.BreadthSearch(s, t);
-if (caminho == null) {
-    System.out.println("Não há caminho entre os vértices");
-} else {
-    System.out.print("Caminho entre " + s + " e " + t + ": ");
-    for (int i = 0; i < caminho.size(); i++) {
-        System.out.print(caminho.get(i));
-        if (i < caminho.size() - 1) {
-            System.out.print(" -> ");
+    int s = 1,  t = 5;  
+    ArrayList<Integer> caminho = grafo.BreadthSearch(s, t);
+    if (caminho == null) {
+        System.out.println("Não há caminho entre os vértices");
+    } else {
+        System.out.print("Caminho entre " + s + " e " + t + ": ");
+        for (int i = 0; i < caminho.size(); i++) {
+            System.out.print(caminho.get(i));
+            if (i < caminho.size() - 1) {
+                System.out.print(" -> ");
             
+            }
         }
+    } 
+    System.out.println("\nBusca em profundidade: ");
+    int k = 3, y = 9;
+    System.out.println("Caminho entre " + k + " e " + y + ": ");
+    grafo.DeepSearch(k, y) ;
     }
-} 
-System.out.println("\nBusca em profundidade: ");
-int k=3, y=9;
-System.out.println("Caminho entre " + k + " e " + y + ": ");
-grafo.DeepSearch(k, y) ;
-}
 }
